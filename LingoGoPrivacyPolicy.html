@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="pageTitle">LingoGo 隱私權政策</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            background-color: #f8fafc;
+        }
+        .active-nav {
+            color: #2563eb;
+            font-weight: 600;
+            border-left-color: #2563eb;
+        }
+        .prose-custom p, .prose-custom li {
+            color: #374151;
+        }
+        .prose-custom a {
+            color: #2563eb;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .prose-custom a:hover {
+            color: #1d4ed8;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1), padding 0.5s ease-in-out;
+        }
+        .accordion-content.open {
+            max-height: 1000px;
+            transition: max-height 1s cubic-bezier(1, 0, 1, 0), padding 0.5s ease-in-out;
+        }
+        .accordion-icon {
+            transition: transform 0.3s ease-in-out;
+        }
+        .accordion-icon.open {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Language Switcher -->
+        <div class="flex justify-end pt-4">
+            <select id="lang-switcher" onchange="setLanguage(this.value)" class="w-40 rounded-md border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm">
+                <!-- Options will be populated by JavaScript -->
+            </select>
+        </div>
+
+        <div class="lg:flex lg:space-x-12 py-12 lg:py-16">
+            
+            <aside class="lg:w-1/4 lg:sticky lg:top-16 self-start mb-10 lg:mb-0">
+                <div class="hidden lg:block">
+                    <h3 class="text-xs font-bold uppercase text-slate-500 tracking-wider mb-4" data-translate="policySections">政策章節</h3>
+                    <nav id="sidebar-nav">
+                        <ul class="space-y-3">
+                            <li><a href="#section-1" class="nav-link block pl-3 border-l-2 border-transparent text-slate-600 hover:text-blue-600 hover:border-blue-600 transition-colors duration-200" data-translate="nav1">1. 簡介與聯絡方式</a></li>
+                            <li><a href="#section-2" class="nav-link block pl-3 border-l-2 border-transparent text-slate-600 hover:text-blue-600 hover:border-blue-600 transition-colors duration-200" data-translate="nav2">2. 收集的資訊</a></li>
+                            <li><a href="#section-3" class="nav-link block pl-3 border-l-2 border-transparent text-slate-600 hover:text-blue-600 hover:border-blue-600 transition-colors duration-200" data-translate="nav3">3. 如何使用資訊</a></li>
+                            <li><a href="#section-4" class="nav-link block pl-3 border-l-2 border-transparent text-slate-600 hover:text-blue-600 hover:border-blue-600 transition-colors duration-200" data-translate="nav4">4. 資訊分享</a></li>
+                            <li><a href="#section-5" class="nav-link block pl-3 border-l-2 border-transparent text-slate-600 hover:text-blue-600 hover:border-blue-600 transition-colors duration-200" data-translate="nav5">5. 資料儲存與安全</a></li>
+                            <li><a href="#section-6" class="nav-link block pl-3 border-l-2 border-transparent text-slate-600 hover:text-blue-600 hover:border-blue-600 transition-colors duration-200" data-translate="nav6">6. 您的權利與選擇</a></li>
+                            <li><a href="#section-7" class="nav-link block pl-3 border-l-2 border-transparent text-slate-600 hover:text-blue-600 hover:border-blue-600 transition-colors duration-200" data-translate="nav7">7. 兒童隱私</a></li>
+                            <li><a href="#section-8" class="nav-link block pl-3 border-l-2 border-transparent text-slate-600 hover:text-blue-600 hover:border-blue-600 transition-colors duration-200" data-translate="nav8">8. 政策變更</a></li>
+                            <li><a href="#section-gdpr" class="nav-link block pl-3 border-l-2 border-transparent text-slate-600 hover:text-blue-600 hover:border-blue-600 transition-colors duration-200" data-translate="navGdpr">歐盟使用者附加條款</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="lg:hidden">
+                    <select id="mobile-nav" class="w-full rounded-md border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                        <option value="#section-1" data-translate="nav1">1. 簡介與聯絡方式</option>
+                        <option value="#section-2" data-translate="nav2">2. 收集的資訊</option>
+                        <option value="#section-3" data-translate="nav3">3. 如何使用資訊</option>
+                        <option value="#section-4" data-translate="nav4">4. 資訊分享</option>
+                        <option value="#section-5" data-translate="nav5">5. 資料儲存與安全</option>
+                        <option value="#section-6" data-translate="nav6">6. 您的權利與選擇</option>
+                        <option value="#section-7" data-translate="nav7">7. 兒童隱私</option>
+                        <option value="#section-8" data-translate="nav8">8. 政策變更</option>
+                        <option value="#section-gdpr" data-translate="navGdpr">歐盟使用者附加條款</option>
+                    </select>
+                </div>
+            </aside>
+
+            <main class="flex-1 prose-custom">
+                <header class="mb-12">
+                    <h1 class="text-4xl lg:text-5xl font-bold tracking-tight text-slate-900" data-translate="headerTitle">LingoGo 隱私權政策</h1>
+                    <p class="mt-4 text-lg text-slate-500" data-translate="lastUpdated">最後更新日期：2025年8月13日</p>
+                </header>
+
+                <div class="space-y-16">
+                    <section id="section-1">
+                        <h2 class="text-2xl font-bold text-slate-900 border-b pb-2 mb-6" data-translate="s1Title">1. 簡介與聯絡方式</h2>
+                        <div class="space-y-4">
+                            <p data-translate="s1p1">歡迎使用 LingoGo（以下簡稱「本應用程式」）。我們致力於保護您的隱私權。本政策旨在說明我們如何收集、使用、揭露和保護您的資訊。</p>
+                            <p data-translate="s1p2">若您對本隱私權政策有任何疑問或疑慮，請隨時透過電子郵件與我們聯繫：<a href="mailto:lingogo2025@outlook.com" class="font-medium">lingogo2025@outlook.com</a>。</p>
+                        </div>
+                    </section>
+                    
+                    <section id="section-2">
+                        <h2 class="text-2xl font-bold text-slate-900 border-b pb-2 mb-6" data-translate="s2Title">2. 我們收集的資訊</h2>
+                        <p class="whitespace-pre-line" data-translate="s2p1">• **語音資料**：當您使用即時翻譯功能時，我們會透過裝置的麥克風收集您的語音資料。這些資料會即時處理並用於轉錄和翻譯，部分資料可能會匿名傳送至第三方服務（如 Apple、Google、OpenAI）以完成處理。<br>• **圖像資料**：當您使用圖像辨識功能時，我們會存取您透過相機拍攝或從相簿中選擇的圖片。這些圖片會被傳送至第三方 AI 服務進行分析。<br>• **位置資料**：我們可能會請求存取您的地理位置，以在歷史紀錄中標記對話發生的地點，並為圖像分析提供地理背景資訊。<br>• **API 金鑰**：您提供的第三方服務（Google Gemini、OpenAI）API 金鑰會安全地儲存在您的裝置本機，僅用於向這些服務發送請求。我們絕不會收集或上傳您的金鑰。</p>
+                    </section>
+
+                    <section id="section-3">
+                        <h2 class="text-2xl font-bold text-slate-900 border-b pb-2 mb-6" data-translate="s3Title">3. 我們如何使用您的資訊</h2>
+                        <p class="whitespace-pre-line" data-translate="s3p1">我們使用收集到的資訊來：<br>• 提供、操作和維護本應用程式的核心功能（語音翻譯、圖像辨識）。<br>• 改善和個人化您的使用體驗。<br>• 將您的對話和分析結果儲存在您的裝置本機，供您日後查閱。</p>
+                    </section>
+
+                    <section id="section-4">
+                        <h2 class="text-2xl font-bold text-slate-900 border-b pb-2 mb-6" data-translate="s4Title">4. 資訊分享與揭露</h2>
+                        <p class="whitespace-pre-line" data-translate="s4p1">我們絕不會出售您的個人資訊。我們僅在以下情況下分享您的資訊：<br>• **第三方服務供應商**：為了提供翻譯和辨識功能，您的語音和圖像資料會被傳送至您所選擇的服務供應商（Apple、Google Gemini 或 OpenAI）。我們建議您查閱其各自的隱私權政策以了解他們如何處理您的資料。<br>• **法律要求**：如果法律要求或為回應有效的法律程序，我們可能會揭露您的資訊。<br>**所有使用者產生的內容（如歷史紀錄）皆儲存在您的裝置上，我們無法存取。**</p>
+                    </section>
+
+                    <section id="section-5">
+                        <h2 class="text-2xl font-bold text-slate-900 border-b pb-2 mb-6" data-translate="s5Title">5. 資料儲存與安全</h2>
+                        <p data-translate="s5p1">您的所有個人資料，包括對話歷史、圖像分析紀錄和 API 金鑰，都使用 Apple 的 SwiftData 框架安全地儲存在您的裝置本機。我們不會將這些資料備份到任何外部伺服器。我們採取合理的措施保護您的資訊，但沒有任何安全系統是絕對無法被破解的。</p>
+                    </section>
+
+                    <section id="section-6">
+                        <h2 class="text-2xl font-bold text-slate-900 border-b pb-2 mb-6" data-translate="s6Title">6. 您的權利與選擇</h2>
+                        <p data-translate="s6p1">您可以隨時透過本應用程式的設定來管理您的資料。您可以清除所有歷史紀錄和設定。您也可以隨時透過 iOS 系統設定來撤銷對麥克風、相機、相簿和位置的存取權限。</p>
+                    </section>
+
+                    <section id="section-7">
+                        <h2 class="text-2xl font-bold text-slate-900 border-b pb-2 mb-6" data-translate="s7Title">7. 兒童隱私</h2>
+                        <p data-translate="s7p1">本應用程式不適用於 16 歲以下的兒童。我們不會故意收集兒童的個人可識別資訊。</p>
+                    </section>
+
+                    <section id="section-8">
+                        <h2 class="text-2xl font-bold text-slate-900 border-b pb-2 mb-6" data-translate="s8Title">8. 政策變更</h2>
+                        <p data-translate="s8p1">我們可能會不時更新我們的隱私權政策。我們會在應用程式內通知您任何重大變更。建議您定期查看本政策以了解最新資訊。</p>
+                    </section>
+
+                    <section id="section-gdpr" class="mt-16 pt-10 border-t-2 border-blue-200">
+                         <div class="p-6 bg-white border border-blue-200 rounded-lg shadow-md">
+                            <h2 class="text-2xl font-bold text-slate-900 mb-4" data-translate="gdprTitle">給歐洲聯盟使用者的附加條款</h2>
+                            <div class="space-y-6">
+                                <p data-translate="gdprIntro">若您是歐洲經濟區（EEA）、英國或瑞士的居民，您將根據《一般資料保護規範》（GDPR）及相關法律享有以下權利。</p>
+                                <div class="space-y-3">
+                                    <!-- Accordion Items -->
+                                    <div class="accordion-item border-b border-slate-200 last:border-b-0">
+                                        <button class="accordion-header w-full flex justify-between items-center text-left py-4">
+                                            <span class="font-semibold text-slate-800" data-translate="gdprAccess">存取權 (Right to Access)</span>
+                                            <span class="accordion-icon text-slate-500"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></span>
+                                        </button>
+                                        <div class="accordion-content"><p class="pb-4 text-slate-600" data-translate="gdprAccessDesc">您有權要求我們提供所持有關於您的個人資料副本。</p></div>
+                                    </div>
+                                    <div class="accordion-item border-b border-slate-200 last:border-b-0">
+                                        <button class="accordion-header w-full flex justify-between items-center text-left py-4">
+                                            <span class="font-semibold text-slate-800" data-translate="gdprRect">更正權 (Right to Rectification)</span>
+                                            <span class="accordion-icon text-slate-500"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></span>
+                                        </button>
+                                        <div class="accordion-content"><p class="pb-4 text-slate-600" data-translate="gdprRectDesc">您有權要求更正不準確的個人資料。</p></div>
+                                    </div>
+                                    <div class="accordion-item border-b border-slate-200 last:border-b-0">
+                                        <button class="accordion-header w-full flex justify-between items-center text-left py-4">
+                                            <span class="font-semibold text-slate-800" data-translate="gdprErasure">刪除權 (Right to Erasure / '被遺忘權')</span>
+                                            <span class="accordion-icon text-slate-500"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></span>
+                                        </button>
+                                        <div class="accordion-content"><p class="pb-4 text-slate-600" data-translate="gdprErasureDesc">在特定情況下，您有權要求我們刪除您的個人資料。</p></div>
+                                    </div>
+                                    <div class="accordion-item border-b border-slate-200 last:border-b-0">
+                                        <button class="accordion-header w-full flex justify-between items-center text-left py-4">
+                                            <span class="font-semibold text-slate-800" data-translate="gdprRestrict">限制處理權 (Right to Restrict Processing)</span>
+                                            <span class="accordion-icon text-slate-500"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></span>
+                                        </button>
+                                        <div class="accordion-content"><p class="pb-4 text-slate-600" data-translate="gdprRestrictDesc">在特定情況下，您有權要求我們限制對您個人資料的處理。</p></div>
+                                    </div>
+                                    <div class="accordion-item border-b border-slate-200 last:border-b-0">
+                                        <button class="accordion-header w-full flex justify-between items-center text-left py-4">
+                                            <span class="font-semibold text-slate-800" data-translate="gdprPort">資料可攜權 (Right to Data Portability)</span>
+                                            <span class="accordion-icon text-slate-500"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></span>
+                                        </button>
+                                        <div class="accordion-content"><p class="pb-4 text-slate-600" data-translate="gdprPortDesc">您有權以結構化、通用且機器可讀的格式接收您的個人資料，並將其傳輸給其他控制者。</p></div>
+                                    </div>
+                                    <div class="accordion-item border-b border-slate-200 last:border-b-0">
+                                        <button class="accordion-header w-full flex justify-between items-center text-left py-4">
+                                            <span class="font-semibold text-slate-800" data-translate="gdprObject">反對權 (Right to Object)</span>
+                                            <span class="accordion-icon text-slate-500"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></span>
+                                        </button>
+                                        <div class="accordion-content"><p class="pb-4 text-slate-600" data-translate="gdprObjectDesc">您有權反對我們基於合法利益處理您的資料。</p></div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <button class="accordion-header w-full flex justify-between items-center text-left py-4">
+                                            <span class="font-semibold text-slate-800" data-translate="gdprComplaint">投訴權 (Right to Lodge a Complaint)</span>
+                                            <span class="accordion-icon text-slate-500"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></span>
+                                        </button>
+                                        <div class="accordion-content"><p class="pb-4 text-slate-600" data-translate="gdprComplaintDesc">您有權向您所在國家的資料保護監管機構提出申訴。</p></div>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-slate-500 mt-4" data-translate="gdprExercise">若要行使上述權利，您可以直接透過 App 內功能操作（如刪除歷史紀錄、匯出資料），或透過本政策開頭的電子郵件與我們聯繫。</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // 1. 翻譯內容儲存
+        const translations = {
+            'en': { name: 'English', data: {} },
+            'zh-Hant': { name: '繁體中文', data: {} },
+            'zh-Hans': { name: '简体中文', data: {} },
+            'de': { name: 'Deutsch', data: {} },
+            'es': { name: 'Español', data: {} },
+            'fr': { name: 'Français', data: {} },
+            'it': { name: 'Italiano', data: {} },
+            'ja': { name: '日本語', data: {} },
+            'ko': { name: '한국어', data: {} },
+            'pt': { name: 'Português', data: {} },
+            'ru': { name: 'Русский', data: {} },
+            'ar': { name: 'العربية', data: {} },
+            'id': { name: 'Bahasa Indonesia', data: {} },
+            'nl': { name: 'Nederlands', data: {} },
+            'pl': { name: 'Polski', data: {} },
+            'th': { name: 'ไทย', data: {} },
+            'tr': { name: 'Türkçe', data: {} },
+            'uk': { name: 'Українська', data: {} },
+            'vi': { name: 'Tiếng Việt', data: {} }
+        };
+
+        const commonContent = {
+            s2p1: '• **語音資料**：當您使用即時翻譯功能時，我們會透過裝置的麥克風收集您的語音資料。這些資料會即時處理並用於轉錄和翻譯，部分資料可能會匿名傳送至第三方服務（如 Apple、Google、OpenAI）以完成處理。<br>• **圖像資料**：當您使用圖像辨識功能時，我們會存取您透過相機拍攝或從相簿中選擇的圖片。這些圖片會被傳送至第三方 AI 服務進行分析。<br>• **位置資料**：我們可能會請求存取您的地理位置，以在歷史紀錄中標記對話發生的地點，並為圖像分析提供地理背景資訊。<br>• **API 金鑰**：您提供的第三方服務（Google Gemini、OpenAI）API 金鑰會安全地儲存在您的裝置本機，僅用於向這些服務發送請求。我們絕不會收集或上傳您的金鑰。',
+            s3p1: '我們使用收集到的資訊來：<br>• 提供、操作和維護本應用程式的核心功能（語音翻譯、圖像辨識）。<br>• 改善和個人化您的使用體驗。<br>• 將您的對話和分析結果儲存在您的裝置本機，供您日後查閱。',
+            s4p1: '我們絕不會出售您的個人資訊。我們僅在以下情況下分享您的資訊：<br>• **第三方服務供應商**：為了提供翻譯和辨識功能，您的語音和圖像資料會被傳送至您所選擇的服務供應商（Apple、Google Gemini 或 OpenAI）。我們建議您查閱其各自的隱私權政策以了解他們如何處理您的資料。<br>• **法律要求**：如果法律要求或為回應有效的法律程序，我們可能會揭露您的資訊。<br>**所有使用者產生的內容（如歷史紀錄）皆儲存在您的裝置上，我們無法存取。**',
+            s5p1: '您的所有個人資料，包括對話歷史、圖像分析紀錄和 API 金鑰，都使用 Apple 的 SwiftData 框架安全地儲存在您的裝置本機。我們不會將這些資料備份到任何外部伺服器。我們採取合理的措施保護您的資訊，但沒有任何安全系統是絕對無法被破解的。',
+            s6p1: '您可以隨時透過本應用程式的設定來管理您的資料。您可以清除所有歷史紀錄和設定。您也可以隨時透過 iOS 系統設定來撤銷對麥克風、相機、相簿和位置的存取權限。',
+            s7p1: '本應用程式不適用於 16 歲以下的兒童。我們不會故意收集兒童的個人可識別資訊。',
+            s8p1: '我們可能會不時更新我們的隱私權政策。我們會在應用程式內通知您任何重大變更。建議您定期查看本政策以了解最新資訊。'
+        };
+
+        translations.en.data = {
+            pageTitle: 'LingoGo Privacy Policy', policySections: 'Policy Sections', nav1: '1. Introduction & Contact', nav2: '2. Information We Collect', nav3: '3. How We Use Information', nav4: '4. Information Sharing', nav5: '5. Data Storage & Security', nav6: '6. Your Rights & Choices', nav7: '7. Children\'s Privacy', nav8: '8. Policy Changes', navGdpr: 'Addendum for EU Users', headerTitle: 'LingoGo Privacy Policy', lastUpdated: 'Last Updated: August 13, 2025', s1Title: '1. Introduction & Contact', s1p1: 'Welcome to LingoGo (the "App"). We are committed to protecting your privacy. This policy explains how we collect, use, disclose, and safeguard your information.', s1p2: 'If you have any questions or concerns about this privacy policy, please feel free to contact us by email at <a href="mailto:lingogo2025@outlook.com" class="font-medium">lingogo2025@outlook.com</a>.', s2Title: '2. Information We Collect', s3Title: '3. How We Use Your Information', s4Title: '4. Information Sharing & Disclosure', s5Title: '5. Data Storage & Security', s6Title: '6. Your Rights & Choices', s7Title: '7. Children\'s Privacy', s8Title: '8. Changes to This Policy', gdprTitle: 'Addendum for Users in the European Union', gdprIntro: 'If you are a resident of the European Economic Area (EEA), the UK, or Switzerland, you have the following rights under the General Data Protection Regulation (GDPR) and related laws.', gdprAccess: 'Right to Access', gdprAccessDesc: 'You have the right to request a copy of the personal data we hold about you.', gdprRect: 'Right to Rectification', gdprRectDesc: 'You have the right to request the correction of inaccurate personal data.', gdprErasure: 'Right to Erasure (\'Right to be Forgotten\')', gdprErasureDesc: 'Under certain conditions, you have the right to request that we delete your personal data.', gdprRestrict: 'Right to Restrict Processing', gdprRestrictDesc: 'Under certain conditions, you have the right to request that we restrict the processing of your personal data.', gdprPort: 'Right to Data Portability', gdprPortDesc: 'You have the right to receive your personal data in a structured, commonly used, and machine-readable format and to transmit it to another controller.', gdprObject: 'Right to Object', gdprObjectDesc: 'You have the right to object to our processing of your data based on legitimate interests.', gdprComplaint: 'Right to Lodge a Complaint', gdprComplaintDesc: 'You have the right to lodge a complaint with the data protection supervisory authority in your country.', gdprExercise: 'To exercise these rights, you can operate directly through the in-app features (such as deleting history, exporting data) or contact us via the email at the beginning of this policy.', ...commonContent
+        };
+        translations['zh-Hant'].data = {
+            pageTitle: 'LingoGo 隱私權政策', policySections: '政策章節', nav1: '1. 簡介與聯絡方式', nav2: '2. 收集的資訊', nav3: '3. 如何使用資訊', nav4: '4. 資訊分享', nav5: '5. 資料儲存與安全', nav6: '6. 您的權利與選擇', nav7: '7. 兒童隱私', nav8: '8. 政策變更', navGdpr: '歐盟使用者附加條款', headerTitle: 'LingoGo 隱私權政策', lastUpdated: '最後更新日期：2025年8月13日', s1Title: '1. 簡介與聯絡方式', s1p1: '歡迎使用 LingoGo（以下簡稱「本應用程式」）。我們致力於保護您的隱私權。本政策旨在說明我們如何收集、使用、揭露和保護您的資訊。', s1p2: '若您對本隱私權政策有任何疑問或疑慮，請隨時透過電子郵件與我們聯繫：<a href="mailto:lingogo2025@outlook.com" class="font-medium">lingogo2025@outlook.com</a>。', s2Title: '2. 我們收集的資訊', s3Title: '3. 我們如何使用您的資訊', s4Title: '4. 資訊分享與揭露', s5Title: '5. 資料儲存與安全', s6Title: '6. 您的權利與選擇', s7Title: '7. 兒童隱私', s8Title: '8. 政策變更', gdprTitle: '給歐洲聯盟使用者的附加條款', gdprIntro: '若您是歐洲經濟區（EEA）、英國或瑞士的居民，您將根據《一般資料保護規範》（GDPR）及相關法律享有以下權利。', gdprAccess: '存取權 (Right to Access)', gdprAccessDesc: '您有權要求我們提供所持有關於您的個人資料副本。', gdprRect: '更正權 (Right to Rectification)', gdprRectDesc: '您有權要求更正不準確的個人資料。', gdprErasure: '刪除權 (Right to Erasure / \'被遺忘權\')', gdprErasureDesc: '在特定情況下，您有權要求我們刪除您的個人資料。', gdprRestrict: '限制處理權 (Right to Restrict Processing)', gdprRestrictDesc: '在特定情況下，您有權要求我們限制對您個人資料的處理。', gdprPort: '資料可攜權 (Right to Data Portability)', gdprPortDesc: '您有權以結構化、通用且機器可讀的格式接收您的個人資料，並將其傳輸給其他控制者。', gdprObject: '反對權 (Right to Object)', gdprObjectDesc: '您有權反對我們基於合法利益處理您的資料。', gdprComplaint: '投訴權 (Right to Lodge a Complaint)', gdprComplaintDesc: '您有權向您所在國家的資料保護監管機構提出申訴。', gdprExercise: '若要行使上述權利，您可以直接透過 App 內功能操作（如刪除歷史紀錄、匯出資料），或透過本政策開頭的電子郵件與我們聯繫。', ...commonContent
+        };
+        translations['zh-Hans'].data = { pageTitle: 'LingoGo 隐私政策', policySections: '政策章节', nav1: '1. 简介与联系方式', nav2: '2. 收集的信息', nav3: '3. 如何使用信息', nav4: '4. 信息分享', nav5: '5. 数据存储与安全', nav6: '6. 您的权利与选择', nav7: '7. 儿童隐私', nav8: '8. 政策变更', navGdpr: '欧盟用户附加条款', headerTitle: 'LingoGo 隐私政策', lastUpdated: '最后更新日期：2025年8月13日', s1Title: '1. 简介与联系方式', s1p1: '欢迎使用 LingoGo（以下简称“本应用程序”）。我们致力于保护您的隐私权。本政策旨在说明我们如何收集、使用、披露和保护您的信息。', s1p2: '若您对本隐私权政策有任何疑问或疑虑，请随时通过电子邮件与我们联系：<a href="mailto:lingogo2025@outlook.com" class="font-medium">lingogo2025@outlook.com</a>。', s2Title: '2. 我们收集的信息', s3Title: '3. 我们如何使用您的信息', s4Title: '4. 信息分享与披露', s5Title: '5. 数据存储与安全', s6Title: '6. 您的权利与选择', s7Title: '7. 儿童隐私', s8Title: '8. 政策变更', gdprTitle: '给欧洲联盟用户的附加条款', gdprIntro: '若您是欧洲经济区（EEA）、英国或瑞士的居民，您将根据《通用数据保护条例》（GDPR）及相关法律享有以下权利。', gdprAccess: '访问权 (Right to Access)', gdprAccessDesc: '您有权要求我们提供所持有关于您的个人数据副本。', gdprRect: '更正权 (Right to Rectification)', gdprRectDesc: '您有权要求更正不准确的个人数据。', gdprErasure: '删除权 (Right to Erasure / \'被遗忘权\')', gdprErasureDesc: '在特定情况下，您有权要求我们删除您的个人数据。', gdprRestrict: '限制处理权 (Right to Restrict Processing)', gdprRestrictDesc: '在特定情况下，您有权要求我们限制对您个人数据的处理。', gdprPort: '数据可携权 (Right to Data Portability)', gdprPortDesc: '您有权以结构化、通用且机器可读的格式接收您的个人数据，并将其传输给其他控制者。', gdprObject: '反对权 (Right to Object)', gdprObjectDesc: '您有权反对我们基于合法利益处理您的数据。', gdprComplaint: '投诉权 (Right to Lodge a Complaint)', gdprComplaintDesc: '您有权向您所在国家的数据保护监管机构提出申诉。', gdprExercise: '若要行使上述权利，您可以直接通过 App 内功能操作（如删除历史记录、汇出数据），或通过本政策开头的电子邮件与我们联系。', ...commonContent };
+        translations.de.data = { pageTitle: 'LingoGo Datenschutzrichtlinie', policySections: 'Richtlinienabschnitte', nav1: '1. Einführung & Kontakt', nav2: '2. Von uns erfasste Informationen', nav3: '3. Wie wir Informationen verwenden', nav4: '4. Informationsweitergabe', nav5: '5. Datenspeicherung & Sicherheit', nav6: '6. Ihre Rechte & Wahlmöglichkeiten', nav7: '7. Privatsphäre von Kindern', nav8: '8. Änderungen der Richtlinie', navGdpr: 'Zusatz für EU-Nutzer', headerTitle: 'LingoGo Datenschutzrichtlinie', lastUpdated: 'Zuletzt aktualisiert: 13. August 2025', s1Title: '1. Einführung & Kontakt', s1p1: 'Willkommen bei LingoGo (die "App"). Wir verpflichten uns, Ihre Privatsphäre zu schützen. Diese Richtlinie erklärt, wie wir Ihre Informationen sammeln, verwenden, offenlegen und schützen.', s1p2: 'Wenn Sie Fragen oder Bedenken zu dieser Datenschutzrichtlinie haben, können Sie uns gerne per E-Mail unter <a href="mailto:lingogo2025@outlook.com" class="font-medium">lingogo2025@outlook.com</a> kontaktieren.', s2Title: '2. Von uns erfasste Informationen', s3Title: '3. Wie wir Ihre Informationen verwenden', s4Title: '4. Informationsweitergabe & Offenlegung', s5Title: '5. Datenspeicherung & Sicherheit', s6Title: '6. Ihre Rechte & Wahlmöglichkeiten', s7Title: '7. Privatsphäre von Kindern', s8Title: '8. Änderungen dieser Richtlinie', gdprTitle: 'Zusatz für Nutzer in der Europäischen Union', gdprIntro: 'Wenn Sie im Europäischen Wirtschaftsraum (EWR), im Vereinigten Königreich oder in der Schweiz ansässig sind, haben Sie gemäß der Datenschutz-Grundverordnung (DSGVO) und den damit verbundenen Gesetzen die folgenden Rechte.', gdprAccess: 'Auskunftsrecht', gdprAccessDesc: 'Sie haben das Recht, eine Kopie der personenbezogenen Daten anzufordern, die wir über Sie gespeichert haben.', gdprRect: 'Recht auf Berichtigung', gdprRectDesc: 'Sie haben das Recht, die Berichtigung unrichtiger personenbezogener Daten zu verlangen.', gdprErasure: 'Recht auf Löschung („Recht auf Vergessenwerden“)', gdprErasureDesc: 'Unter bestimmten Bedingungen haben Sie das Recht, von uns die Löschung Ihrer personenbezogenen Daten zu verlangen.', gdprRestrict: 'Recht auf Einschränkung der Verarbeitung', gdprRestrictDesc: 'Unter bestimmten Bedingungen haben Sie das Recht, von uns die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.', gdprPort: 'Recht auf Datenübertragbarkeit', gdprPortDesc: 'Sie haben das Recht, Ihre personenbezogenen Daten in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten und sie einem anderen Verantwortlichen zu übermitteln.', gdprObject: 'Widerspruchsrecht', gdprObjectDesc: 'Sie haben das Recht, unserer Verarbeitung Ihrer Daten aufgrund berechtigter Interessen zu widersprechen.', gdprComplaint: 'Recht auf Beschwerde', gdprComplaintDesc: 'Sie haben das Recht, eine Beschwerde bei der Datenschutzaufsichtsbehörde in Ihrem Land einzulegen.', gdprExercise: 'Um diese Rechte auszuüben, können Sie direkt über die In-App-Funktionen (wie das Löschen des Verlaufs, den Export von Daten) handeln oder uns über die E-Mail am Anfang dieser Richtlinie kontaktieren.', ...commonContent };
+        translations.es.data = { pageTitle: 'Política de Privacidad de LingoGo', policySections: 'Secciones de la Política', nav1: '1. Introducción y Contacto', nav2: '2. Información que Recopilamos', nav3: '3. Cómo Usamos la Información', nav4: '4. Intercambio de Información', nav5: '5. Almacenamiento y Seguridad de Datos', nav6: '6. Sus Derechos y Opciones', nav7: '7. Privacidad de los Niños', nav8: '8. Cambios en la Política', navGdpr: 'Anexo para Usuarios de la UE', headerTitle: 'Política de Privacidad de LingoGo', lastUpdated: 'Última actualización: 13 de agosto de 2025', s1Title: '1. Introducción y Contacto', s1p1: 'Bienvenido a LingoGo (la "Aplicación"). Estamos comprometidos a proteger su privacidad. Esta política explica cómo recopilamos, usamos, divulgamos y protegemos su información.', s1p2: 'Si tiene alguna pregunta o inquietud sobre esta política de privacidad, no dude en contactarnos por correo electrónico a <a href="mailto:lingogo2025@outlook.com" class="font-medium">lingogo2025@outlook.com</a>.', s2Title: '2. Información que Recopilamos', s3Title: '3. Cómo Usamos Su Información', s4Title: '4. Intercambio y Divulgación de Información', s5Title: '5. Almacenamiento y Seguridad de Datos', s6Title: '6. Sus Derechos y Opciones', s7Title: '7. Privacidad de los Niños', s8Title: '8. Cambios a Esta Política', gdprTitle: 'Anexo para Usuarios en la Unión Europea', gdprIntro: 'Si es residente del Espacio Económico Europeo (EEE), el Reino Unido o Suiza, tiene los siguientes derechos en virtud del Reglamento General de Protección de Datos (RGPD) y las leyes relacionadas.', gdprAccess: 'Derecho de Acceso', gdprAccessDesc: 'Tiene derecho a solicitar una copia de los datos personales que tenemos sobre usted.', gdprRect: 'Derecho de Rectificación', gdprRectDesc: 'Tiene derecho a solicitar la corrección de datos personales inexactos.', gdprErasure: 'Derecho de Supresión (\'Derecho al Olvido\')', gdprErasureDesc: 'Bajo ciertas condiciones, tiene derecho a solicitar que eliminemos sus datos personales.', gdprRestrict: 'Derecho a Restringir el Procesamiento', gdprRestrictDesc: 'Bajo ciertas condiciones, tiene derecho a solicitar que restrinjamos el procesamiento de sus datos personales.', gdprPort: 'Derecho a la Portabilidad de los Datos', gdprPortDesc: 'Tiene derecho a recibir sus datos personales en un formato estructurado, de uso común y legible por máquina y a transmitirlos a otro controlador.', gdprObject: 'Derecho de Oposición', gdprObjectDesc: 'Tiene derecho a oponerse a nuestro procesamiento de sus datos basado en intereses legítimos.', gdprComplaint: 'Derecho a Presentar una Queja', gdprComplaintDesc: 'Tiene derecho a presentar una queja ante la autoridad de supervisión de protección de datos de su país.', gdprExercise: 'Para ejercer estos derechos, puede operar directamente a través de las funciones de la aplicación (como eliminar el historial, exportar datos) o contactarnos a través del correo electrónico al principio de esta política.', ...commonContent };
+        translations.fr.data = { pageTitle: 'Politique de Confidentialité de LingoGo', policySections: 'Sections de la politique', nav1: '1. Introduction et Contact', nav2: '2. Informations que nous collectons', nav3: '3. Comment nous utilisons les informations', nav4: '4. Partage d\'informations', nav5: '5. Stockage et Sécurité des données', nav6: '6. Vos droits et choix', nav7: '7. Confidentialité des enfants', nav8: '8. Modifications de la politique', navGdpr: 'Addendum pour les utilisateurs de l\'UE', headerTitle: 'Politique de Confidentialité de LingoGo', lastUpdated: 'Dernière mise à jour : 13 août 2025', s1Title: '1. Introduction et Contact', s1p1: 'Bienvenue sur LingoGo (l\'« Application »). Nous nous engageons à protéger votre vie privée. Cette politique explique comment nous collectons, utilisons, divulguons et protégeons vos informations.', s1p2: 'Si vous avez des questions ou des préoccupations concernant cette politique de confidentialité, n\'hésitez pas à nous contacter par e-mail à <a href="mailto:lingogo2025@outlook.com" class="font-medium">lingogo2025@outlook.com</a>.', s2Title: '2. Informations que nous collectons', s3Title: '3. Comment nous utilisons vos informations', s4Title: '4. Partage et divulgation d\'informations', s5Title: '5. Stockage et sécurité des données', s6Title: '6. Vos droits et choix', s7Title: '7. Confidentialité des enfants', s8Title: '8. Modifications de cette politique', gdprTitle: 'Addendum pour les utilisateurs de l\'Union européenne', gdprIntro: 'Si vous êtes résident de l\'Espace économique européen (EEE), du Royaume-Uni ou de la Suisse, vous disposez des droits suivants en vertu du Règlement général sur la protection des données (RGPD) et des lois associées.', gdprAccess: 'Droit d\'accès', gdprAccessDesc: 'Vous avez le droit de demander une copie des données personnelles que nous détenons à votre sujet.', gdprRect: 'Droit de rectification', gdprRectDesc: 'Vous avez le droit de demander la correction des données personnelles inexactes.', gdprErasure: 'Droit à l\'effacement (« droit à l\'oubli »)', gdprErasureDesc: 'Sous certaines conditions, vous avez le droit de nous demander de supprimer vos données personnelles.', gdprRestrict: 'Droit à la limitation du traitement', gdprRestrictDesc: 'Sous certaines conditions, vous avez le droit de nous demander de limiter le traitement de vos données personnelles.', gdprPort: 'Droit à la portabilité des données', gdprPortDesc: 'Vous avez le droit de recevoir vos données personnelles dans un format structuré, couramment utilisé et lisible par machine et de les transmettre à un autre responsable du traitement.', gdprObject: 'Droit d\'opposition', gdprObjectDesc: 'Vous avez le droit de vous opposer à notre traitement de vos données fondé sur des intérêts légitimes.', gdprComplaint: 'Droit d\'introduire une réclamation', gdprComplaintDesc: 'Vous avez le droit d\'introduire une réclamation auprès de l\'autorité de contrôle de la protection des données de votre pays.', gdprExercise: 'Pour exercer ces droits, vous pouvez opérer directement via les fonctionnalités de l\'application (telles que la suppression de l\'historique, l\'exportation de données) ou nous contacter via l\'e-mail au début de cette politique.', ...commonContent };
+        translations.it.data = { pageTitle: 'Informativa sulla Privacy di LingoGo', policySections: 'Sezioni dell\'Informativa', nav1: '1. Introduzione e Contatti', nav2: '2. Informazioni che Raccogliamo', nav3: '3. Come Utilizziamo le Informazioni', nav4: '4. Condivisione delle Informazioni', nav5: '5. Archiviazione e Sicurezza dei Dati', nav6: '6. I Tuoi Diritti e le Tue Scelte', nav7: '7. Privacy dei Minori', nav8: '8. Modifiche all\'Informativa', navGdpr: 'Addendum per gli Utenti dell\'UE', headerTitle: 'Informativa sulla Privacy di LingoGo', lastUpdated: 'Ultimo aggiornamento: 13 agosto 2025', s1Title: '1. Introduzione e Contatti', s1p1: 'Benvenuto in LingoGo (l\'"App"). Ci impegniamo a proteggere la tua privacy. Questa informativa spiega come raccogliamo, utilizziamo, divulghiamo e proteggiamo le tue informazioni.', s1p2: 'Se hai domande o dubbi su questa informativa sulla privacy, non esitare a contattarci via email all\'indirizzo <a href="mailto:lingogo2025@outlook.com" class="font-medium">lingogo2025@outlook.com</a>.', s2Title: '2. Informazioni che Raccogliamo', s3Title: '3. Come Utilizziamo le Tue Informazioni', s4Title: '4. Condivisione e Divulgazione delle Informazioni', s5Title: '5. Archiviazione e Sicurezza dei Dati', s6Title: '6. I Tuoi Diritti e le Tue Scelte', s7Title: '7. Privacy dei Minori', s8Title: '8. Modifiche a Questa Informativa', gdprTitle: 'Addendum per gli Utenti nell\'Unione Europea', gdprIntro: 'Se sei residente nello Spazio Economico Europeo (SEE), nel Regno Unito o in Svizzera, hai i seguenti diritti ai sensi del Regolamento Generale sulla Protezione dei Dati (GDPR) e delle leggi correlate.', gdprAccess: 'Diritto di Accesso', gdprAccessDesc: 'Hai il diritto di richiedere una copia dei dati personali che conserviamo su di te.', gdprRect: 'Diritto di Rettifica', gdprRectDesc: 'Hai il diritto di richiedere la correzione di dati personali inesatti.', gdprErasure: 'Diritto alla Cancellazione (\'Diritto all\'Oblio\')', gdprErasureDesc: 'In determinate condizioni, hai il diritto di richiederci la cancellazione dei tuoi dati personali.', gdprRestrict: 'Diritto di Limitazione del Trattamento', gdprRestrictDesc: 'In determinate condizioni, hai il diritto di richiederci di limitare il trattamento dei tuoi dati personali.', gdprPort: 'Diritto alla Portabilità dei Dati', gdprPortDesc: 'Hai il diritto di ricevere i tuoi dati personali in un formato strutturato, di uso comune e leggibile da dispositivo automatico e di trasmetterli a un altro titolare del trattamento.', gdprObject: 'Diritto di Opposizione', gdprObjectDesc: 'Hai il diritto di opporti al nostro trattamento dei tuoi dati basato su interessi legittimi.', gdprComplaint: 'Diritto di Proporre Reclamo', gdprComplaintDesc: 'Hai il diritto di proporre reclamo all\'autorità di controllo per la protezione dei dati del tuo paese.', gdprExercise: 'Per esercitare questi diritti, puoi operare direttamente tramite le funzionalità in-app (come l\'eliminazione della cronologia, l\'esportazione dei dati) o contattarci tramite l\'email all\'inizio di questa informativa.', ...commonContent };
+        translations.ja.data = { pageTitle: 'LingoGo プライバシーポリシー', policySections: 'ポリシーセクション', nav1: '1. はじめに＆連絡先', nav2: '2. 収集する情報', nav3: '3. 情報の利用方法', nav4: '4. 情報の共有', nav5: '5. データの保管とセキュリティ', nav6: '6. お客様の権利と選択肢', nav7: '7. お子様のプライバシー', nav8: '8. ポリシーの変更', navGdpr: 'EUユーザー向け補遺', headerTitle: 'LingoGo プライバシーポリシー', lastUpdated: '最終更新日：2025年8月13日', s1Title: '1. はじめに＆連絡先', s1p1: 'LingoGo（以下「本アプリ」）へようこそ。当社はお客様のプライバシー保護に努めています。本ポリシーは、当社がお客様の情報をどのように収集、利用、開示、保護するかを説明するものです。', s1p2: '本プライバシーポリシーに関するご質問やご懸念がございましたら、<a href="mailto:lingogo2025@outlook.com" class="font-medium">lingogo2025@outlook.com</a> までお気軽にメールにてお問い合わせください。', s2Title: '2. 当社が収集する情報', s3Title: '3. お客様の情報の利用方法', s4Title: '4. 情報の共有と開示', s5Title: '5. データの保管とセキュリティ', s6Title: '6. お客様の権利と選択肢', s7Title: '7. お子様のプライバシー', s8Title: '8. 本ポリシーの変更', gdprTitle: '欧州連合のユーザー向けの補遺', gdprIntro: 'お客様が欧州経済領域（EEA）、英国、またはスイスの居住者である場合、一般データ保護規則（GDPR）および関連法に基づき、以下の権利を有します。', gdprAccess: 'アクセス権', gdprAccessDesc: 'お客様は、当社が保持するお客様の個人データのコピーを要求する権利を有します。', gdprRect: '訂正権', gdprRectDesc: 'お客様は、不正確な個人データの訂正を要求する権利を有します。', gdprErasure: '消去権（「忘れられる権利」）', gdprErasureDesc: '特定の条件下で、お客様は当社に個人データの削除を要求する権利を有します。', gdprRestrict: '処理制限権', gdprRestrictDesc: '特定の条件下で、お客様は当社に個人データの処理を制限するよう要求する権利を有します。', gdprPort: 'データポータビリティ権', gdprPortDesc: 'お客様は、構造化され、一般的に使用され、機械で読み取り可能な形式で個人データを受け取り、それを別の管理者に送信する権利を有します。', gdprObject: '異議申し立て権', gdprObjectDesc: 'お客様は、正当な利益に基づく当社のデータ処理に異議を申し立てる権利を有します。', gdprComplaint: '苦情申し立て権', gdprComplaintDesc: 'お客様は、お住まいの国のデータ保護監督機関に苦情を申し立てる権利を有します。', gdprExercise: 'これらの権利を行使するには、アプリ内機能（履歴の削除、データのエクスポートなど）を直接操作するか、本ポリシーの冒頭にあるメールアドレスを通じて当社にご連絡ください。', ...commonContent };
+        translations.ko.data = { pageTitle: 'LingoGo 개인정보 처리방침', policySections: '정책 섹션', nav1: '1. 소개 및 연락처', nav2: '2. 수집하는 정보', nav3: '3. 정보 사용 방법', nav4: '4. 정보 공유', nav5: '5. 데이터 저장 및 보안', nav6: '6. 귀하의 권리 및 선택', nav7: '7. 아동의 개인정보 보호', nav8: '8. 정책 변경', navGdpr: 'EU 사용자를 위한 부록', headerTitle: 'LingoGo 개인정보 처리방침', lastUpdated: '최종 업데이트: 2025년 8월 13일', s1Title: '1. 소개 및 연락처', s1p1: 'LingoGo("앱")에 오신 것을 환영합니다. 저희는 귀하의 개인정보를 보호하기 위해 최선을 다하고 있습니다. 이 정책은 저희가 귀하의 정보를 수집, 사용, 공개 및 보호하는 방법을 설명합니다.', s1p2: '이 개인정보 처리방침에 대해 질문이나 우려 사항이 있으시면 언제든지 <a href="mailto:lingogo2025@outlook.com" class="font-medium">lingogo2025@outlook.com</a>으로 이메일을 보내주십시오.', s2Title: '2. 수집하는 정보', s3Title: '3. 귀하의 정보를 사용하는 방법', s4Title: '4. 정보 공유 및 공개', s5Title: '5. 데이터 저장 및 보안', s6Title: '6. 귀하의 권리 및 선택', s7Title: '7. 아동의 개인정보 보호', s8Title: '8. 본 정책의 변경', gdprTitle: '유럽 연합 사용자를 위한 부록', gdprIntro: '귀하가 유럽 경제 지역(EEA), 영국 또는 스위스 거주자인 경우, 일반 데이터 보호 규정(GDPR) 및 관련 법률에 따라 다음과 같은 권리를 갖습니다.', gdprAccess: '접근권', gdprAccessDesc: '귀하는 당사가 보유한 귀하의 개인 데이터 사본을 요청할 권리가 있습니다.', gdprRect: '정정권', gdprRectDesc: '귀하는 부정확한 개인 데이터의 정정을 요청할 권리가 있습니다.', gdprErasure: '삭제권(\'잊힐 권리\')', gdprErasureDesc: '특정 조건 하에서 귀하는 당사에 귀하의 개인 데이터 삭제를 요청할 권리가 있습니다.', gdprRestrict: '처리 제한권', gdprRestrictDesc: '특정 조건 하에서 귀하는 당사에 귀하의 개인 데이터 처리를 제한하도록 요청할 권리가 있습니다.', gdprPort: '데이터 이동권', gdprPortDesc: '귀하는 구조화되고 일반적으로 사용되며 기계가 읽을 수 있는 형식으로 개인 데이터를 수신하고 다른 컨트롤러에게 전송할 권리가 있습니다.', gdprObject: '반대권', gdprObjectDesc: '귀하는 정당한 이익에 근거한 당사의 데이터 처리에 반대할 권리가 있습니다.', gdprComplaint: '불만 제기권', gdprComplaintDesc: '귀하는 귀하 국가의 데이터 보호 감독 기관에 불만을 제기할 권리가 있습니다.', gdprExercise: '이러한 권리를 행사하려면 인앱 기능(예: 기록 삭제, 데이터 내보내기)을 통해 직접 운영하거나 본 정책 시작 부분의 이메일을 통해 당사에 연락할 수 있습니다.', ...commonContent };
+        translations.pt.data = { pageTitle: 'Política de Privacidade do LingoGo', policySections: 'Seções da Política', nav1: '1. Introdução e Contato', nav2: '2. Informações que Coletamos', nav3: '3. Como Usamos as Informações', nav4: '4. Compartilhamento de Informações', nav5: '5. Armazenamento e Segurança de Dados', nav6: '6. Seus Direitos e Opções', nav7: '7. Privacidade Infantil', nav8: '8. Alterações na Política', navGdpr: 'Adendo para Usuários da UE', headerTitle: 'Política de Privacidade do LingoGo', lastUpdated: 'Última atualização: 13 de agosto de 2025', s1Title: '1. Introdução e Contato', s1p1: 'Bem-vindo ao LingoGo (o "App"). Estamos comprometidos em proteger sua privacidade. Esta política explica como coletamos, usamos, divulgamos e protegemos suas informações.', s1p2: 'Se você tiver alguma dúvida ou preocupação sobre esta política de privacidade, sinta-se à vontade para nos contatar por e-mail em <a href="mailto:lingogo2025@outlook.com" class="font-medium">lingogo2025@outlook.com</a>.', s2Title: '2. Informações que Coletamos', s3Title: '3. Como Usamos Suas Informações', s4Title: '4. Compartilhamento e Divulgação de Informações', s5Title: '5. Armazenamento e Segurança de Dados', s6Title: '6. Seus Direitos e Opções', s7Title: '7. Privacidade Infantil', s8Title: '8. Alterações a Esta Política', gdprTitle: 'Adendo para Usuários na União Europeia', gdprIntro: 'Se você é residente do Espaço Econômico Europeu (EEE), do Reino Unido ou da Suíça, você tem os seguintes direitos sob o Regulamento Geral de Proteção de Dados (GDPR) e leis relacionadas.', gdprAccess: 'Direito de Acesso', gdprAccessDesc: 'Você tem o direito de solicitar uma cópia dos dados pessoais que mantemos sobre você.', gdprRect: 'Direito de Retificação', gdprRectDesc: 'Você tem o direito de solicitar a correção de dados pessoais imprecisos.', gdprErasure: 'Direito de Apagamento (\'Direito de Ser Esquecido\')', gdprErasureDesc: 'Sob certas condições, você tem o direito de solicitar que apaguemos seus dados pessoais.', gdprRestrict: 'Direito de Restringir o Processamento', gdprRestrictDesc: 'Sob certas condições, você tem o direito de solicitar que restrinjamos o processamento de seus dados pessoais.', gdprPort: 'Direito à Portabilidade de Dados', gdprPortDesc: 'Você tem o direito de receber seus dados pessoais em um formato estruturado, comumente usado e legível por máquina e de transmiti-los a outro controlador.', gdprObject: 'Direito de Oposição', gdprObjectDesc: 'Você tem o direito de se opor ao nosso processamento de seus dados com base em interesses legítimos.', gdprComplaint: 'Direito de Apresentar uma Reclamação', gdprComplaintDesc: 'Você tem o direito de apresentar uma reclamação à autoridade supervisora de proteção de dados em seu país.', gdprExercise: 'Para exercer esses direitos, você pode operar diretamente através dos recursos do aplicativo (como excluir histórico, exportar dados) ou entrar em contato conosco através do e-mail no início desta política.', ...commonContent };
+        translations.ru.data = { pageTitle: 'Политика конфиденциальности LingoGo', policySections: 'Разделы политики', nav1: '1. Введение и контакты', nav2: '2. Собираемая информация', nav3: '3. Как мы используем информацию', nav4: '4. Обмен информацией', nav5: '5. Хранение и безопасность данных', nav6: '6. Ваши права и выбор', nav7: '7. Конфиденциальность детей', nav8: '8. Изменения в политике', navGdpr: 'Дополнение для пользователей из ЕС', headerTitle: 'Политика конфиденциальности LingoGo', lastUpdated: 'Последнее обновление: 13 августа 2025 г.', s1Title: '1. Введение и контакты', s1p1: 'Добро пожаловать в LingoGo («Приложение»). Мы стремимся защищать вашу конфиденциальность. Эта политика объясняет, как мы собираем, используем, раскрываем и защищаем вашу информацию.', s1p2: 'Если у вас есть какие-либо вопросы или опасения по поводу этой политики конфиденциальности, пожалуйста, свяжитесь с нами по электронной почте <a href="mailto:lingogo2025@outlook.com" class="font-medium">lingogo2025@outlook.com</a>.', s2Title: '2. Информация, которую мы собираем', s3Title: '3. Как мы используем вашу информацию', s4Title: '4. Обмен и раскрытие информации', s5Title: '5. Хранение и безопасность данных', s6Title: '6. Ваши права и выбор', s7Title: '7. Конфиденциальность детей', s8Title: '8. Изменения в этой Политике', gdprTitle: 'Дополнение для пользователей в Европейском союзе', gdprIntro: 'Если вы являетесь резидентом Европейской экономической зоны (ЕЭЗ), Великобритании или Швейцарии, у вас есть следующие права в соответствии с Общим регламентом по защите данных (GDPR) и связанными с ним законами.', gdprAccess: 'Право на доступ', gdprAccessDesc: 'Вы имеете право запросить копию персональных данных, которые мы храним о вас.', gdprRect: 'Право на исправление', gdprRectDesc: 'Вы имеете право потребовать исправления неточных персональных данных.', gdprErasure: 'Право на удаление («право на забвение»)', gdprErasureDesc: 'При определенных условиях вы имеете право потребовать, чтобы мы удалили ваши персональные данные.', gdprRestrict: 'Право на ограничение обработки', gdprRestrictDesc: 'При определенных условиях вы имеete право потребовать, чтобы мы ограничили обработку ваших персональных данных.', gdprPort: 'Право на переносимость данных', gdprPortDesc: 'Вы имеете право получать свои персональные данные в структурированном, общепринятом и машиночитаемом формате и передавать их другому контролеру.', gdprObject: 'Право на возражение', gdprObjectDesc: 'Вы имеете право возражать против обработки нами ваших данных на основании законных интересов.', gdprComplaint: 'Право на подачу жалобы', gdprComplaintDesc: 'Вы имеете право подать жалобу в надзорный орган по защите данных в вашей стране.', gdprExercise: 'Чтобы воспользоваться этими правами, вы можете действовать непосредственно через функции в приложении (например, удаление истории, экспорт данных) или связаться с нами по электронной почте, указанной в начале этой политики.', ...commonContent };
+        translations.ar.data = { pageTitle: 'سياسة خصوصية LingoGo', policySections: 'أقسام السياسة', nav1: '1. مقدمة وتواصل', nav2: '2. المعلومات التي نجمعها', nav3: '3. كيف نستخدم المعلومات', nav4: '4. مشاركة المعلومات', nav5: '5. تخزين البيانات وأمانها', nav6: '6. حقوقك وخياراتك', nav7: '7. خصوصية الأطفال', nav8: '8. تغييرات السياسة', navGdpr: 'ملحق لمستخدمي الاتحاد الأوروبي', headerTitle: 'سياسة خصوصية LingoGo', lastUpdated: 'آخر تحديث: 13 أغسطس 2025', s1Title: '1. مقدمة وتواصل', s1p1: 'مرحبًا بك في LingoGo ("التطبيق"). نحن ملتزمون بحماية خصوصيتك. تشرح هذه السياسة كيف نجمع معلوماتك ونستخدمها ونكشف عنها ونحميها.', s1p2: 'إذا كانت لديك أي أسئلة أو مخاوف بشأن سياسة الخصوصية هذه ، فلا تتردد في الاتصال بنا عبر البريد الإلكتروني على <a href="mailto:lingogo2025@outlook.com" class="font-medium">lingogo2025@outlook.com</a>.', s2Title: '2. المعلومات التي نجمعها', s3Title: '3. كيف نستخدم معلوماتك', s4Title: '4. مشاركة المعلومات والكشف عنها', s5Title: '5. تخزين البيانات وأمانها', s6Title: '6. حقوقك وخياراتك', s7Title: '7. خصوصية الأطفال', s8Title: '8. التغييرات على هذه السياسة', gdprTitle: 'ملحق للمستخدمين في الاتحاد الأوروبي', gdprIntro: 'إذا كنت مقيمًا في المنطقة الاقتصادية الأوروبية (EEA) أو المملكة المتحدة أو سويسرا ، فلديك الحقوق التالية بموجب اللائحة العامة لحماية البيانات (GDPR) والقوانين ذات الصلة.', gdprAccess: 'الحق في الوصول', gdprAccessDesc: 'لديك الحق في طلب نسخة من البيانات الشخصية التي نحتفظ بها عنك.', gdprRect: 'الحق في التصحيح', gdprRectDesc: 'لديك الحق في طلب تصحيح البيانات الشخصية غير الدقيقة.', gdprErasure: 'الحق في الحذف ("الحق في أن تُنسى")', gdprErasureDesc: 'في ظل ظروف معينة ، لديك الحق في أن تطلب منا حذف بياناتك الشخصية.', gdprRestrict: 'الحق في تقييد المعالجة', gdprRestrictDesc: 'في ظل ظروف معينة ، لديك الحق في أن تطلب منا تقييد معالجة بياناتك الشخصية.', gdprPort: 'الحق في نقل البيانات', gdprPortDesc: 'لديك الحق في تلقي بياناتك الشخصية بتنسيق منظم وشائع الاستخدام وقابل للقراءة آليًا ونقلها إلى وحدة تحكم أخرى.', gdprObject: 'الحق في الاعتراض', gdprObjectDesc: 'لديك الحق في الاعتراض على معالجتنا لبياناتك على أساس المصالح المشروعة.', gdprComplaint: 'الحق في تقديم شكوى', gdprComplaintDesc: 'لديك الحق في تقديم شكوى إلى هيئة الإشراف على حماية البيانات في بلدك.', gdprExercise: 'لممارسة هذه الحقوق ، يمكنك العمل مباشرة من خلال الميزات الموجودة في التطبيق (مثل حذف السجل وتصدير البيانات) أو الاتصال بنا عبر البريد الإلكتروني في بداية هذه السياسة.', ...commonContent };
+        translations.id.data = { pageTitle: 'Kebijakan Privasi LingoGo', policySections: 'Bagian Kebijakan', nav1: '1. Pengantar & Kontak', nav2: '2. Informasi yang Kami Kumpulkan', nav3: '3. Cara Kami Menggunakan Informasi', nav4: '4. Berbagi Informasi', nav5: '5. Penyimpanan & Keamanan Data', nav6: '6. Hak & Pilihan Anda', nav7: '7. Privasi Anak-Anak', nav8: '8. Perubahan Kebijakan', navGdpr: 'Adendum untuk Pengguna UE', headerTitle: 'Kebijakan Privasi LingoGo', lastUpdated: 'Terakhir Diperbarui: 13 Agustus 2025', s1Title: '1. Pengantar & Kontak', s1p1: 'Selamat datang di LingoGo ("Aplikasi"). Kami berkomitmen untuk melindungi privasi Anda. Kebijakan ini menjelaskan cara kami mengumpulkan, menggunakan, mengungkapkan, dan melindungi informasi Anda.', s1p2: 'Jika Anda memiliki pertanyaan atau kekhawatiran tentang kebijakan privasi ini, jangan ragu untuk menghubungi kami melalui email di <a href="mailto:lingogo2025@outlook.com" class="font-medium">lingogo2025@outlook.com</a>.', s2Title: '2. Informasi yang Kami Kumpulkan', s3Title: '3. Cara Kami Menggunakan Informasi Anda', s4Title: '4. Berbagi & Pengungkapan Informasi', s5Title: '5. Penyimpanan & Keamanan Data', s6Title: '6. Hak & Pilihan Anda', s7Title: '7. Privasi Anak-Anak', s8Title: '8. Perubahan pada Kebijakan Ini', gdprTitle: 'Adendum untuk Pengguna di Uni Eropa', gdprIntro: 'Jika Anda adalah penduduk Wilayah Ekonomi Eropa (EEA), Inggris, atau Swiss, Anda memiliki hak-hak berikut di bawah Peraturan Perlindungan Data Umum (GDPR) dan undang-undang terkait.', gdprAccess: 'Hak untuk Mengakses', gdprAccessDesc: 'Anda berhak meminta salinan data pribadi yang kami miliki tentang Anda.', gdprRect: 'Hak untuk Perbaikan', gdprRectDesc: 'Anda berhak meminta koreksi data pribadi yang tidak akurat.', gdprErasure: 'Hak untuk Menghapus (\'Hak untuk Dilupakan\')', gdprErasureDesc: 'Dalam kondisi tertentu, Anda berhak meminta kami menghapus data pribadi Anda.', gdprRestrict: 'Hak untuk Membatasi Pemrosesan', gdprRestrictDesc: 'Dalam kondisi tertentu, Anda berhak meminta kami membatasi pemrosesan data pribadi Anda.', gdprPort: 'Hak atas Portabilitas Data', gdprPortDesc: 'Anda berhak menerima data pribadi Anda dalam format yang terstruktur, umum digunakan, dan dapat dibaca mesin dan mengirimkannya ke pengontrol lain.', gdprObject: 'Hak untuk Menolak', gdprObjectDesc: 'Anda berhak menolak pemrosesan data kami berdasarkan kepentingan yang sah.', gdprComplaint: 'Hak untuk Mengajukan Keluhan', gdprComplaintDesc: 'Anda berhak mengajukan keluhan kepada otoritas pengawas perlindungan data di negara Anda.', gdprExercise: 'Untuk menggunakan hak-hak ini, Anda dapat beroperasi langsung melalui fitur dalam aplikasi (seperti menghapus riwayat, mengekspor data) atau menghubungi kami melalui email di awal kebijakan ini.', ...commonContent };
+        translations.nl.data = { pageTitle: 'Privacybeleid van LingoGo', policySections: 'Beleidssecties', nav1: '1. Introductie & Contact', nav2: '2. Informatie die we verzamelen', nav3: '3. Hoe we informatie gebruiken', nav4: '4. Informatie delen', nav5: '5. Gegevensopslag & Beveiliging', nav6: '6. Uw rechten & keuzes', nav7: '7. Privacy van kinderen', nav8: '8. Beleidswijzigingen', navGdpr: 'Addendum voor EU-gebruikers', headerTitle: 'Privacybeleid van LingoGo', lastUpdated: 'Laatst bijgewerkt: 13 augustus 2025', s1Title: '1. Introductie & Contact', s1p1: 'Welkom bij LingoGo (de "App"). We zijn toegewijd aan het beschermen van uw privacy. Dit beleid legt uit hoe we uw informatie verzamelen, gebruiken, openbaar maken en beschermen.', s1p2: 'Als u vragen of opmerkingen heeft over dit privacybeleid, neem dan gerust contact met ons op via e-mail op <a href="mailto:lingogo2025@outlook.com" class="font-medium">lingogo2025@outlook.com</a>.', s2Title: '2. Informatie die we verzamelen', s3Title: '3. Hoe we uw informatie gebruiken', s4Title: '4. Informatie delen & openbaar maken', s5Title: '5. Gegevensopslag & beveiliging', s6Title: '6. Uw rechten & keuzes', s7Title: '7. Privacy van kinderen', s8Title: '8. Wijzigingen in dit beleid', gdprTitle: 'Addendum voor gebruikers in de Europese Unie', gdprIntro: 'Als u een inwoner bent van de Europese Economische Ruimte (EER), het VK of Zwitserland, heeft u de volgende rechten onder de Algemene Verordening Gegevensbescherming (AVG) en gerelateerde wetten.', gdprAccess: 'Recht op toegang', gdprAccessDesc: 'U heeft het recht om een kopie op te vragen van de persoonsgegevens die wij over u bewaren.', gdprRect: 'Recht op rectificatie', gdprRectDesc: 'U heeft het recht om correctie van onjuiste persoonsgegevens te vragen.', gdprErasure: 'Recht op verwijdering (\'Recht om vergeten te worden\')', gdprErasureDesc: 'Onder bepaalde voorwaarden heeft u het recht om ons te verzoeken uw persoonsgegevens te verwijderen.', gdprRestrict: 'Recht om de verwerking te beperken', gdprRestrictDesc: 'Onder bepaalde voorwaarden heeft u het recht om ons te verzoeken de verwerking van uw persoonsgegevens te beperken.', gdprPort: 'Recht op gegevensoverdraagbaarheid', gdprPortDesc: 'U heeft het recht om uw persoonsgegevens in een gestructureerd, algemeen gebruikt en machineleesbaar formaat te ontvangen en door te geven aan een andere verwerkingsverantwoordelijke.', gdprObject: 'Recht van bezwaar', gdprObjectDesc: 'U heeft het recht om bezwaar te maken tegen onze verwerking van uw gegevens op basis van legitieme belangen.', gdprComplaint: 'Recht om een klacht in te dienen', gdprComplaintDesc: 'U heeft het recht om een klacht in te dienen bij de toezichthoudende autoriteit voor gegevensbescherming in uw land.', gdprExercise: 'Om deze rechten uit te oefenen, kunt u rechtstreeks via de in-app functies (zoals het verwijderen van de geschiedenis, het exporteren van gegevens) handelen of contact met ons opnemen via de e-mail aan het begin van dit beleid.', ...commonContent };
+        translations.pl.data = { pageTitle: 'Polityka Prywatności LingoGo', policySections: 'Sekcje Polityki', nav1: '1. Wprowadzenie i Kontakt', nav2: '2. Informacje, które zbieramy', nav3: '3. Jak wykorzystujemy informacje', nav4: '4. Udostępnianie informacji', nav5: '5. Przechowywanie i Bezpieczeństwo Danych', nav6: '6. Twoje Prawa i Wybory', nav7: '7. Prywatność Dzieci', nav8: '8. Zmiany w Polityce', navGdpr: 'Dodatek dla Użytkowników z UE', headerTitle: 'Polityka Prywatności LingoGo', lastUpdated: 'Ostatnia aktualizacja: 13 sierpnia 2025', s1Title: '1. Wprowadzenie i Kontakt', s1p1: 'Witamy w LingoGo ("Aplikacja"). Zobowiązujemy się do ochrony Twojej prywatności. Ta polityka wyjaśnia, w jaki sposób zbieramy, wykorzystujemy, ujawniamy i chronimy Twoje informacje.', s1p2: 'Jeśli masz jakiekolwiek pytania lub wątpliwości dotyczące tej polityki prywatności, skontaktuj się z nami za pośrednictwem poczty elektronicznej pod adresem <a href="mailto:lingogo2025@outlook.com" class="font-medium">lingogo2025@outlook.com</a>.', s2Title: '2. Informacje, które zbieramy', s3Title: '3. Jak wykorzystujemy Twoje informacje', s4Title: '4. Udostępnianie i ujawnianie informacji', s5Title: '5. Przechowywanie i bezpieczeństwo danych', s6Title: '6. Twoje prawa i wybory', s7Title: '7. Prywatność dzieci', s8Title: '8. Zmiany w niniejszej Polityce', gdprTitle: 'Dodatek dla użytkowników w Unii Europejskiej', gdprIntro: 'Jeśli jesteś mieszkańcem Europejskiego Obszaru Gospodarczego (EOG), Wielkiej Brytanii lub Szwajcarii, przysługują Ci następujące prawa wynikające z Ogólnego Rozporządzenia o Ochronie Danych (RODO) i powiązanych przepisów.', gdprAccess: 'Prawo dostępu', gdprAccessDesc: 'Masz prawo zażądać kopii danych osobowych, które przechowujemy na Twój temat.', gdprRect: 'Prawo do sprostowania', gdprRectDesc: 'Masz prawo zażądać sprostowania niedokładnych danych osobowych.', gdprErasure: 'Prawo do usunięcia („prawo do bycia zapomnianym”)', gdprErasureDesc: 'W określonych warunkach masz prawo zażądać od nas usunięcia Twoich danych osobowych.', gdprRestrict: 'Prawo do ograniczenia przetwarzania', gdprRestrictDesc: 'W określonych warunkach masz prawo zażądać od nas ograniczenia przetwarzania Twoich danych osobowych.', gdprPort: 'Prawo do przenoszenia danych', gdprPortDesc: 'Masz prawo otrzymać swoje dane osobowe w ustrukturyzowanym, powszechnie używanym formacie nadającym się do odczytu maszynowego i przesłać je innemu administratorowi.', gdprObject: 'Prawo do sprzeciwu', gdprObjectDesc: 'Masz prawo sprzeciwić się przetwarzaniu przez nas Twoich danych w oparciu o uzasadnione interesy.', gdprComplaint: 'Prawo do wniesienia skargi', gdprComplaintDesc: 'Masz prawo wnieść skargę do organu nadzorczego ds. ochrony danych w swoim kraju.', gdprExercise: 'Aby skorzystać z tych praw, możesz działać bezpośrednio za pomocą funkcji w aplikacji (takich jak usuwanie historii, eksportowanie danych) lub skontaktować się z nami za pośrednictwem wiadomości e-mail na początku niniejszej polityki.', ...commonContent };
+        translations.th.data = { pageTitle: 'นโยบายความเป็นส่วนตัวของ LingoGo', policySections: 'ส่วนของนโยบาย', nav1: '1. บทนำและการติดต่อ', nav2: '2. ข้อมูลที่เรารวบรวม', nav3: '3. วิธีที่เราใช้ข้อมูล', nav4: '4. การแบ่งปันข้อมูล', nav5: '5. การจัดเก็บและความปลอดภัยของข้อมูล', nav6: '6. สิทธิ์และตัวเลือกของคุณ', nav7: '7. ความเป็นส่วนตัวของเด็ก', nav8: '8. การเปลี่ยนแปลงนโยบาย', navGdpr: 'ภาคผนวกสำหรับผู้ใช้ในสหภาพยุโรป', headerTitle: 'นโยบายความเป็นส่วนตัวของ LingoGo', lastUpdated: 'อัปเดตล่าสุด: 13 สิงหาคม 2025', s1Title: '1. บทนำและการติดต่อ', s1p1: 'ยินดีต้อนรับสู่ LingoGo ("แอป") เรามุ่งมั่นที่จะปกป้องความเป็นส่วนตัวของคุณ นโยบายนี้อธิบายวิธีที่เรารวบรวม ใช้ เปิดเผย และปกป้องข้อมูลของคุณ', s1p2: 'หากคุณมีคำถามหรือข้อกังวลเกี่ยวกับนโยบายความเป็นส่วนตัวนี้ โปรดติดต่อเราทางอีเมลที่ <a href="mailto:lingogo2025@outlook.com" class="font-medium">lingogo2025@outlook.com</a>', s2Title: '2. ข้อมูลที่เรารวบรวม', s3Title: '3. เราใช้ข้อมูลของคุณอย่างไร', s4Title: '4. การแบ่งปันและเปิดเผยข้อมูล', s5Title: '5. การจัดเก็บและความปลอดภัยของข้อมูล', s6Title: '6. สิทธิ์และตัวเลือกของคุณ', s7Title: '7. ความเป็นส่วนตัวของเด็ก', s8Title: '8. การเปลี่ยนแปลงนโยบายนี้', gdprTitle: 'ภาคผนวกสำหรับผู้ใช้ในสหภาพยุโรป', gdprIntro: 'หากคุณเป็นผู้พำนักในเขตเศรษฐกิจยุโรป (EEA) สหราชอาณาจักร หรือสวิตเซอร์แลนด์ คุณมีสิทธิต่อไปนี้ภายใต้ระเบียบการคุ้มครองข้อมูลทั่วไป (GDPR) และกฎหมายที่เกี่ยวข้อง', gdprAccess: 'สิทธิ์ในการเข้าถึง', gdprAccessDesc: 'คุณมีสิทธิ์ขอสำเนาข้อมูลส่วนบุคคลที่เราเก็บไว้เกี่ยวกับคุณ', gdprRect: 'สิทธิ์ในการแก้ไข', gdprRectDesc: 'คุณมีสิทธิ์ขอแก้ไขข้อมูลส่วนบุคคลที่ไม่ถูกต้อง', gdprErasure: 'สิทธิ์ในการลบ (\'สิทธิ์ที่จะถูกลืม\')', gdprErasureDesc: 'ภายใต้เงื่อนไขบางประการ คุณมีสิทธิ์ขอให้เราลบข้อมูลส่วนบุคคลของคุณ', gdprRestrict: 'สิทธิ์ในการจำกัดการประมวลผล', gdprRestrictDesc: 'ภายใต้เงื่อนไขบางประการ คุณมีสิทธิ์ขอให้เราจำกัดการประมวลผลข้อมูลส่วนบุคคลของคุณ', gdprPort: 'สิทธิ์ในการเคลื่อนย้ายข้อมูล', gdprPortDesc: 'คุณมีสิทธิ์ได้รับข้อมูลส่วนบุคคลของคุณในรูปแบบที่มีโครงสร้าง ใช้กันทั่วไป และเครื่องอ่านได้ และส่งต่อไปยังผู้ควบคุมรายอื่น', gdprObject: 'สิทธิ์ในการคัดค้าน', gdprObjectDesc: 'คุณมีสิทธิ์คัดค้านการประมวลผลข้อมูลของคุณตามผลประโยชน์ที่ชอบด้วยกฎหมายของเรา', gdprComplaint: 'สิทธิ์ในการยื่นเรื่องร้องเรียน', gdprComplaintDesc: 'คุณมีสิทธิ์ยื่นเรื่องร้องเรียนต่อหน่วยงานกำกับดูแลด้านการคุ้มครองข้อมูลในประเทศของคุณ', gdprExercise: 'ในการใช้สิทธิ์เหล่านี้ คุณสามารถดำเนินการได้โดยตรงผ่านคุณสมบัติในแอป (เช่น การลบประวัติ การส่งออกข้อมูล) หรือติดต่อเราผ่านอีเมลที่ตอนต้นของนโยบายนี้', ...commonContent };
+        translations.tr.data = { pageTitle: 'LingoGo Gizlilik Politikası', policySections: 'Politika Bölümleri', nav1: '1. Giriş ve İletişim', nav2: '2. Topladığımız Bilgiler', nav3: '3. Bilgileri Nasıl Kullanırız', nav4: '4. Bilgi Paylaşımı', nav5: '5. Veri Saklama ve Güvenlik', nav6: '6. Haklarınız ve Seçenekleriniz', nav7: '7. Çocukların Gizliliği', nav8: '8. Politika Değişiklikleri', navGdpr: 'AB Kullanıcıları için Ek', headerTitle: 'LingoGo Gizlilik Politikası', lastUpdated: 'Son Güncelleme: 13 Ağustos 2025', s1Title: '1. Giriş ve İletişim', s1p1: 'LingoGo\'ya ("Uygulama") hoş geldiniz. Gizliliğinizi korumayı taahhüt ediyoruz. Bu politika, bilgilerinizi nasıl topladığımızı, kullandığımızı, ifşa ettiğimizi ve koruduğumuzu açıklamaktadır.', s1p2: 'Bu gizlilik politikası hakkında herhangi bir sorunuz veya endişeniz varsa, lütfen bizimle <a href="mailto:lingogo2025@outlook.com" class="font-medium">lingogo2025@outlook.com</a> adresinden e-posta yoluyla iletişime geçmekten çekinmeyin.', s2Title: '2. Topladığımız Bilgiler', s3Title: '3. Bilgilerinizi Nasıl Kullanırız', s4Title: '4. Bilgi Paylaşımı ve İfşası', s5Title: '5. Veri Saklama ve Güvenlik', s6Title: '6. Haklarınız ve Seçenekleriniz', s7Title: '7. Çocukların Gizliliği', s8Title: '8. Bu Politikadaki Değişiklikler', gdprTitle: 'Avrupa Birliği\'ndeki Kullanıcılar için Ek', gdprIntro: 'Avrupa Ekonomik Alanı (AEA), İngiltere veya İsviçre\'de ikamet ediyorsanız, Genel Veri Koruma Yönetmeliği (GDPR) ve ilgili yasalar uyarınca aşağıdaki haklara sahipsiniz.', gdprAccess: 'Erişim Hakkı', gdprAccessDesc: 'Hakkınızda tuttuğumuz kişisel verilerin bir kopyasını talep etme hakkına sahipsiniz.', gdprRect: 'Düzeltme Hakkı', gdprRectDesc: 'Yanlış kişisel verilerin düzeltilmesini talep etme hakkına sahipsiniz.', gdprErasure: 'Silme Hakkı (\'Unutulma Hakkı\')', gdprErasureDesc: 'Belirli koşullar altında, kişisel verilerinizi silmemizi talep etme hakkına sahipsiniz.', gdprRestrict: 'İşlemeyi Kısıtlama Hakkı', gdprRestrictDesc: 'Belirli koşullar altında, kişisel verilerinizin işlenmesini kısıtlamamızı talep etme hakkına sahipsiniz.', gdprPort: 'Veri Taşınabilirliği Hakkı', gdprPortDesc: 'Kişisel verilerinizi yapılandırılmış, yaygın olarak kullanılan ve makine tarafından okunabilir bir formatta alma ve başka bir denetleyiciye iletme hakkına sahipsiniz.', gdprObject: 'İtiraz Hakkı', gdprObjectDesc: 'Verilerinizi meşru menfaatlere dayanarak işlememize itiraz etme hakkına sahipsiniz.', gdprComplaint: 'Şikayette Bulunma Hakkı', gdprComplaintDesc: 'Ülkenizdeki veri koruma denetim makamına şikayette bulunma hakkına sahipsiniz.', gdprExercise: 'Bu hakları kullanmak için, uygulama içi özellikler aracılığıyla (geçmişi silme, verileri dışa aktarma gibi) doğrudan işlem yapabilir veya bu politikanın başındaki e-posta yoluyla bizimle iletişime geçebilirsiniz.', ...commonContent };
+        translations.uk.data = { pageTitle: 'Політика конфіденційності LingoGo', policySections: 'Розділи політики', nav1: '1. Вступ та контакти', nav2: '2. Інформація, яку ми збираємо', nav3: '3. Як ми використовуємо інформацію', nav4: '4. Обмін інформацією', nav5: '5. Зберігання та безпека даних', nav6: '6. Ваші права та вибір', nav7: '7. Конфіденційність дітей', nav8: '8. Зміни до політики', navGdpr: 'Додаток для користувачів з ЄС', headerTitle: 'Політика конфіденційності LingoGo', lastUpdated: 'Останнє оновлення: 13 серпня 2025 р.', s1Title: '1. Вступ та контакти', s1p1: 'Ласкаво просимо до LingoGo («Додаток»). Ми прагнемо захищати вашу конфіденційність. Ця політика пояснює, як ми збираємо, використовуємо, розкриваємо та захищаємо вашу інформацію.', s1p2: 'Якщо у вас виникли запитання чи занепокоєння щодо цієї політики конфіденційності, будь ласка, зв’яжіться з нами електронною поштою за адресою <a href="mailto:lingogo2025@outlook.com" class="font-medium">lingogo2025@outlook.com</a>.', s2Title: '2. Інформація, яку ми збираємо', s3Title: '3. Як ми використовуємо вашу інформацію', s4Title: '4. Обмін та розкриття інформації', s5Title: '5. Зберігання та безпека даних', s6Title: '6. Ваші права та вибір', s7Title: '7. Конфіденційність дітей', s8Title: '8. Зміни до цієї Політики', gdprTitle: 'Додаток для користувачів у Європейському Союзі', gdprIntro: 'Якщо ви є резидентом Європейської економічної зони (ЄЕЗ), Великобританії чи Швейцарії, ви маєте наступні права відповідно до Загального регламенту про захист даних (GDPR) та пов’язаних законів.', gdprAccess: 'Право на доступ', gdprAccessDesc: 'Ви маєте право вимагати копію персональних даних, які ми зберігаємо про вас.', gdprRect: 'Право на виправлення', gdprRectDesc: 'Ви маєте право вимагати виправлення неточних персональних даних.', gdprErasure: 'Право на видалення («право бути забутим»)', gdprErasureDesc: 'За певних умов ви маєте право вимагати, щоб ми видалили ваші персональні дані.', gdprRestrict: 'Право на обмеження обробки', gdprRestrictDesc: 'За певних умов ви маєте право вимагати, щоб ми обмежили обробку ваших персональних даних.', gdprPort: 'Право на перенесення даних', gdprPortDesc: 'Ви маєте право отримувати свої персональні дані у структурованому, загальновживаному та машиночитаному форматі та передавати їх іншому контролеру.', gdprObject: 'Право на заперечення', gdprObjectDesc: 'Ви маєте право заперечувати проти нашої обробки ваших даних на основі законних інтересів.', gdprComplaint: 'Право на подання скарги', gdprComplaintDesc: 'Ви маєте право подати скаргу до наглядового органу із захисту даних у вашій країні.', gdprExercise: 'Щоб скористатися цими правами, ви можете діяти безпосередньо через функції в додатку (наприклад, видалення історії, експорт даних) або зв’язатися з нами за допомогою електронної пошти на початку цієї політики.', ...commonContent };
+        translations.vi.data = { pageTitle: 'Chính sách Bảo mật của LingoGo', policySections: 'Các mục Chính sách', nav1: '1. Giới thiệu & Liên hệ', nav2: '2. Thông tin chúng tôi thu thập', nav3: '3. Cách chúng tôi sử dụng thông tin', nav4: '4. Chia sẻ thông tin', nav5: '5. Lưu trữ & Bảo mật dữ liệu', nav6: '6. Quyền & Lựa chọn của bạn', nav7: '7. Quyền riêng tư của trẻ em', nav8: '8. Thay đổi chính sách', navGdpr: 'Phụ lục cho người dùng EU', headerTitle: 'Chính sách Bảo mật của LingoGo', lastUpdated: 'Cập nhật lần cuối: 13 tháng 8 năm 2025', s1Title: '1. Giới thiệu & Liên hệ', s1p1: 'Chào mừng bạn đến với LingoGo ("Ứng dụng"). Chúng tôi cam kết bảo vệ quyền riêng tư của bạn. Chính sách này giải thích cách chúng tôi thu thập, sử dụng, tiết lộ và bảo vệ thông tin của bạn.', s1p2: 'Nếu bạn có bất kỳ câu hỏi hoặc thắc mắc nào về chính sách bảo mật này, vui lòng liên hệ với chúng tôi qua email tại <a href="mailto:lingogo2025@outlook.com" class="font-medium">lingogo2025@outlook.com</a>.', s2Title: '2. Thông tin chúng tôi thu thập', s3Title: '3. Cách chúng tôi sử dụng thông tin của bạn', s4Title: '4. Chia sẻ & Tiết lộ thông tin', s5Title: '5. Lưu trữ & Bảo mật dữ liệu', s6Title: '6. Quyền & Lựa chọn của bạn', s7Title: '7. Quyền riêng tư của trẻ em', s8Title: '8. Thay đổi đối với Chính sách này', gdprTitle: 'Phụ lục dành cho người dùng ở Liên minh Châu Âu', gdprIntro: 'Nếu bạn là cư dân của Khu vực Kinh tế Châu Âu (EEA), Vương quốc Anh hoặc Thụy Sĩ, bạn có các quyền sau theo Quy định chung về bảo vệ dữ liệu (GDPR) và các luật liên quan.', gdprAccess: 'Quyền truy cập', gdprAccessDesc: 'Bạn có quyền yêu cầu một bản sao dữ liệu cá nhân mà chúng tôi lưu giữ về bạn.', gdprRect: 'Quyền cải chính', gdprRectDesc: 'Bạn có quyền yêu cầu sửa chữa dữ liệu cá nhân không chính xác.', gdprErasure: 'Quyền được xóa (\'Quyền được lãng quên\')', gdprErasureDesc: 'Trong một số điều kiện nhất định, bạn có quyền yêu cầu chúng tôi xóa dữ liệu cá nhân của bạn.', gdprRestrict: 'Quyền hạn chế xử lý', gdprRestrictDesc: 'Trong một số điều kiện nhất định, bạn có quyền yêu cầu chúng tôi hạn chế xử lý dữ liệu cá nhân của bạn.', gdprPort: 'Quyền di chuyển dữ liệu', gdprPortDesc: 'Bạn có quyền nhận dữ liệu cá nhân của mình ở định dạng có cấu trúc, thường được sử dụng và có thể đọc được bằng máy và truyền dữ liệu đó cho một bên kiểm soát khác.', gdprObject: 'Quyền phản đối', gdprObjectDesc: 'Bạn có quyền phản đối việc chúng tôi xử lý dữ liệu của bạn dựa trên lợi ích hợp pháp.', gdprComplaint: 'Quyền khiếu nại', gdprComplaintDesc: 'Bạn có quyền khiếu nại với cơ quan giám sát bảo vệ dữ liệu ở quốc gia của bạn.', gdprExercise: 'Để thực hiện các quyền này, bạn có thể thao tác trực tiếp thông qua các tính năng trong ứng dụng (chẳng hạn như xóa lịch sử, xuất dữ liệu) hoặc liên hệ với chúng tôi qua email ở đầu chính sách này.', ...commonContent };
+
+        // 2. 語言設定與切換函式
+        function setLanguage(lang) {
+            // 更新所有帶有 data-translate 屬性的元素內容
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[lang] && translations[lang].data[key]) {
+                    // 使用 innerHTML 以便能正確渲染 a 標籤等 HTML 元素
+                    el.innerHTML = translations[lang].data[key];
+                }
+            });
+            // 更新 HTML 的 lang 屬性
+            document.documentElement.lang = lang;
+
+            // 更新下拉選單的值
+            const switcher = document.getElementById('lang-switcher');
+            if (switcher) {
+                switcher.value = lang;
+            }
+
+            // 將選擇的語言儲存到 localStorage
+            localStorage.setItem('lingogo-lang', lang);
+        }
+        
+        // 3. 頁面載入時的處理
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- 動態填充語言切換器 ---
+            const switcher = document.getElementById('lang-switcher');
+            for (const langCode in translations) {
+                const option = document.createElement('option');
+                option.value = langCode;
+                option.textContent = translations[langCode].name;
+                switcher.appendChild(option);
+            }
+
+            // --- 語言初始化邏輯 ---
+            function getInitialLanguage() {
+                const savedLang = localStorage.getItem('lingogo-lang');
+                if (savedLang && translations[savedLang]) {
+                    return savedLang;
+                }
+
+                const browserLang = navigator.language || navigator.userLanguage;
+                
+                // 建立語言代碼前綴映射
+                const langMap = {
+                    'de': 'de', 'en': 'en', 'es': 'es', 'fr': 'fr', 'id': 'id',
+                    'it': 'it', 'ja': 'ja', 'ko': 'ko', 'nl': 'nl', 'pl': 'pl',
+                    'pt': 'pt', 'ru': 'ru', 'th': 'th', 'tr': 'tr', 'uk': 'uk',
+                    'vi': 'vi', 'ar': 'ar', 'zh-Hans': 'zh-CN', 'zh-Hans': 'zh-SG',
+                    'zh-Hant': 'zh-TW', 'zh-Hant': 'zh-HK'
+                };
+
+                for (const key in langMap) {
+                    const prefix = langMap[key];
+                    if (browserLang.startsWith(prefix)) {
+                        // Find the internal key ('zh-Hans' or 'zh-Hant') for the browser prefix
+                        for (const internalKey in translations) {
+                            if (langMap[internalKey] === prefix) {
+                                return internalKey;
+                            }
+                        }
+                    }
+                }
+                
+                // 針對中文的特殊處理
+                if (browserLang.startsWith('zh')) {
+                     return 'zh-Hant';
+                }
+
+                return 'en'; // 預設語言改為英文
+            }
+
+            const initialLang = getInitialLanguage();
+            setLanguage(initialLang);
+
+            // --- Scrollspy 和 Accordion 的原始功能 ---
+            const sections = document.querySelectorAll('main section');
+            const navLinks = document.querySelectorAll('#sidebar-nav a');
+            const mobileNav = document.getElementById('mobile-nav');
+
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.3 };
+
+            const observer = new IntersectionObserver((entries) => {
+                let visibleSectionId = null;
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        visibleSectionId = entry.target.getAttribute('id');
+                    }
+                });
+
+                if (visibleSectionId) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active-nav');
+                        if (link.getAttribute('href') === `#${visibleSectionId}`) {
+                            link.classList.add('active-nav');
+                        }
+                    });
+                    if (document.activeElement !== mobileNav) {
+                       mobileNav.value = `#${visibleSectionId}`;
+                    }
+                }
+            }, observerOptions);
+
+            sections.forEach(section => { observer.observe(section); });
+            
+            mobileNav.addEventListener('change', (e) => {
+                document.querySelector(e.target.value).scrollIntoView({ behavior: 'smooth' });
+            });
+
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    const icon = header.querySelector('.accordion-icon');
+                    const isOpen = content.classList.contains('open');
+                    if (!isOpen) {
+                        content.classList.add('open');
+                        icon.classList.add('open');
+                    } else {
+                        content.classList.remove('open');
+                        icon.classList.remove('open');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
