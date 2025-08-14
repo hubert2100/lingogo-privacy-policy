@@ -49,12 +49,9 @@
 <body class="bg-slate-50 text-slate-800">
 
     <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Language Switcher -->
         <div class="flex justify-end pt-4">
-            <!-- 移除了 onchange 屬性 -->
             <select id="lang-switcher" class="w-40 rounded-md border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm">
-                <!-- Options will be populated by JavaScript -->
-            </select>
+                </select>
         </div>
 
         <div class="lg:flex lg:space-x-12 py-12 lg:py-16">
@@ -162,7 +159,6 @@
                             <div class="space-y-6">
                                 <p data-translate="gdprIntro">If you are a resident of the European Economic Area (EEA), the UK, or Switzerland, you have the following rights under the General Data Protection Regulation (GDPR) and related laws.</p>
                                 <div class="space-y-3">
-                                    <!-- Accordion Items -->
                                     <div class="accordion-item border-b border-slate-200 last:border-b-0">
                                         <button class="accordion-header w-full flex justify-between items-center text-left py-4">
                                             <span class="font-semibold text-slate-800" data-translate="gdprAccess">Right to Access</span>
@@ -319,10 +315,7 @@
             "gdprComplaintDesc": "Bạn có quyền khiếu nại với cơ quan giám sát bảo vệ dữ liệu ở quốc gia của bạn.",
             "gdprExercise": "Để thực hiện các quyền này, bạn có thể thao tác trực tiếp thông qua các tính năng trong ứng dụng (chẳng hạn như xóa lịch sử, xuất dữ liệu) hoặc liên hệ với chúng tôi qua email ở đầu chính sách này."
         }
-    }
-  
-  
-  
+    }                                
             };
 
             // 2. 語言設定與切換函式
@@ -370,34 +363,55 @@
             });
 
 
-            // --- 語言初始化邏輯 ---
+            // --- 語言初始化邏輯 (*** 已修改 ***) ---
             function getInitialLanguage() {
-                // 優先從 localStorage 讀取
+                // 規則 1: 優先檢查 URL 參數 'lan'
+                const urlParams = new URLSearchParams(window.location.search);
+                const lanFromUrl = urlParams.get('lan');
+                
+                if (lanFromUrl && translations[lanFromUrl]) {
+                    // 如果 URL 參數存在且是有效的語言選項，則使用它
+                    return lanFromUrl;
+                }
+
+                // 規則 2: 如果 URL 參數無效或不存在，則偵測瀏覽器語言
+                // 其次，嘗試從 localStorage 讀取用戶上次的選擇
                 const savedLang = localStorage.getItem('lingogo-lang');
                 if (savedLang && translations[savedLang]) {
                     return savedLang;
                 }
-
-                // 其次偵測瀏覽器語言
-                const browserLang = navigator.language || navigator.userLanguage;
                 
-                // 優先完全匹配 (e.g., 'zh-Hant' === 'zh-Hant')
+                // 最後，偵測瀏覽器語言
+                const browserLang = navigator.language || navigator.userLanguage;
+                const lowerCaseBrowserLang = browserLang.toLowerCase();
+
+                // 檢查完全匹配
                 if (translations[browserLang]) {
                     return browserLang;
                 }
+
+                // 映射繁體中文常見變體
+                if (lowerCaseBrowserLang === 'zh-tw' || lowerCaseBrowserLang === 'zh-hk' || lowerCaseBrowserLang.startsWith('zh-hant')) {
+                    return 'zh-Hant';
+                }
                 
-                // 其次匹配繁體中文的變體 (e.g., 'zh-TW', 'zh-HK')
-                if (browserLang.startsWith('zh-')) {
+                // 映射簡體中文常見變體
+                if (lowerCaseBrowserLang === 'zh-cn' || lowerCaseBrowserLang === 'zh-sg' || lowerCaseBrowserLang.startsWith('zh-hans')) {
+                    return 'zh-Hans';
+                }
+                
+                // 為其他 'zh' 開頭的語言提供一個備用選項
+                if (lowerCaseBrowserLang.startsWith('zh')) {
                     return 'zh-Hant';
                 }
 
-                // 其次匹配主要語言代碼 (e.g., 'de-DE' starts with 'de')
+                // 檢查主要語言代碼 (例如，從 'en-US' 中獲取 'en')
                 const langPrefix = browserLang.split('-')[0];
                 if (translations[langPrefix]) {
                     return langPrefix;
                 }
-                
-                // 如果以上都找不到，預設為英文
+
+                // 規則 3: 如果以上都不匹配，預設為英語
                 return 'en';
             }
 
